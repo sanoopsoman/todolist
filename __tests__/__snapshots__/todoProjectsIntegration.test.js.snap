@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Integration between todoModule and projectModule > should allow adding todos to a project and retrieve them accurately 1`] = `
+[
+  "6f9bdda3-da73-41d8-9d80-b5946ad88ca5",
+]
+`;

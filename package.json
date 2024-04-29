@@ -1,0 +1,22 @@
+{
+  "name": "to-do-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.0.0",
+    "jest-localstorage-mock": "^2.4.26",
+    "jsdom": "^24.0.0",
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1",
+    "vitest": "^1.5.0"
+  }
+}

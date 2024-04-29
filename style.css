@@ -1,0 +1,345 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Light", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas:
+  "aside header header header header"
+  "aside main main main main"
+  "aside main main main main"
+  "aside main main main main"
+  "aside main main main main";
+}
+
+header {
+  grid-area: header;
+  background-color: #003566;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  gap: 20px;
+}
+
+
+.userContainer {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  align-self: flex-end;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+
+.litteProfileImg {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 1px solid white;
+  object-fit: cover;
+}
+
+.logLink {
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.logLink:hover {
+  transition: color 0.5s;
+  color: #ffc300;
+}
+
+.btnProject {
+  background: #ffc300;
+  padding: 10px;
+  border: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnProject:hover {
+  transition: color 0.5s;
+  background-color: #ffd60a;
+}
+
+main {
+  grid-area: main;
+}
+
+aside {
+  grid-area: aside;
+  background-color: #001d3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+aside div {
+  margin-left: 30px;
+}
+
+/* Styling for main section - todos card etc */
+
+
+.projectCards {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+#project-list > * {
+  list-style: none;
+  margin: 10px 40px 10px 0;
+  padding: 20px;
+  background-color: #ffc300;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px
+}
+
+.buttonDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px
+}
+
+.deleteProject {
+  background: indianred;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  align-self: flex-end;
+  padding: 5px;
+}
+
+.deleteProject:hover {
+  transition: background-color 0.5s;
+  background-color: firebrick;
+}
+
+.updateProject {
+  font-size: 0.9rem;
+  background: steelblue;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+  padding: 0 3px;
+}
+
+.updateProject:hover {
+  transition: background-color 0.5s;
+  background-color: deepskyblue;
+}
+
+.toDosContainer {
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.todo-card {
+  display: flex;
+  gap: 20px;
+  padding: 20px 10px;
+  border-radius: 10px;
+  border: 2px solid #ffc300;
+  width: 100%;
+}
+
+
+.kanban-board {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.kanban-column {
+  width: 30%;
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.kanban-tasks {
+  min-height: 1200px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: auto;
+}
+
+
+
+.draggable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 30px;
+  cursor: move; /* Visually indicates that the element can be dragged */
+  pointer-events: auto; /* Ensures that the element can trigger pointer events */
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #003566;
+}
+
+.draggable:hover {
+  transition: background-color 0.5s;
+  background-color: #ffc300;
+  padding: 10px;
+}
+
+.deleteTodo {
+  background: indianred;
+  border: none;
+  border-radius: 5px;
+  width: 20%;
+  align-self:flex-end;
+}
+
+.todoTitle {
+  border-bottom: 1px dashed #ffc300;
+}
+
+
+/* Basic CSS for the modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+}
+
+#newProjectForm, #newTodoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: bold;
+}
+
+#newProjectForm button, #newTodoForm button {
+  background: #ffc300;
+  padding: 10px;
+  border: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#newProjectForm input, #newTodoForm input {
+  padding: 10px;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.close, .closeTodoModal {
+  color: #aaaaaa;
+  align-self: flex-end;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus,
+.closeTodoModal:hover,
+.closeTodoModal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header {
+    width: 100%;
+  }
+
+
+  main {
+    width: 100%;
+  }
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+/* CSS-Datei */
+.priority-high { color: red; }
+.priority-medium { color: orange; }
+.priority-low { color: green; }
+
+#selectedProject {
+  font-size: 1.8rem;
+  align-self: center;
+  color: white;
+  font-weight: bold;
+  margin-right: 200px;
+}
+
+.newProjectButton {
+  margin-top: 110px;
+  width: 80%;
+  align-self: center;
+}
+
+
+

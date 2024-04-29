@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="main.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Easy Doing</title>
+  </head>
+  <body>
+
+  <header>
+    <div class="userContainer">
+      <h1 id="selectedProject"></h1>
+      <img src="/assets/icons/bell-ring-outline.svg" alt="Bell Icon" style="height: 36px">
+      <img src="/assets/images/fmpberger.webp" class="litteProfileImg" alt="profile image">
+      <a href="#" class="logLink">Logout</a>
+    </div>
+    <div class="buttonContainer">
+      <button class="btnProject newTodoButton">New Todo</button>
+    </div>
+  </header>
+  <!-- Main elemente for kanban-board -->
+  <main>
+    <!-- Modal for adding Project -->
+    <div id="newProjectModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="newProjectForm">
+          <label for="projectTitle">Project Title:</label>
+          <input type="text" id="projectTitle" name="projectTitle" required>
+          <button type="submit">Create Project</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal for adding Todo -->
+    <div id="newTodoModal" class="modal">
+      <div class="modal-content">
+        <span class="closeTodoModal">&times;</span>
+        <form id="newTodoForm">
+          <label for="todoProjectId">Project: </label>
+          <select id="todoProjectId" name="todoProjectId" required>
+          </select>
+          <label for="todoTitle">Todo Title:</label>
+          <input type="text" id="todoTitle" name="todoTitle" required>
+          <label for="todoDescription">Description</label>
+          <textarea id="todoDescription" name="todoDescription" required></textarea>
+          <label for="todoDueDate">Due Date:</label>
+          <input type="date" id="todoDueDate" name="todoDueDate" required>
+          <label for="todoPriority">Priority:</label>
+          <select id="todoPriority" name="todoPriority" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+          <button type="submit">Create Todo</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="kanban-board">
+      <div class="kanban-column todo">
+        <h2>Todo</h2>
+        <div class="kanban-tasks" data-status="todo" id="todo-tasks"></div>
+      </div>
+      <div class="kanban-column ongoing">
+        <h2>Ongoing</h2>
+        <div class="kanban-tasks" data-status="ongoing" id="ongoing-tasks"></div>
+      </div>
+      <div class="kanban-column done">
+        <h2>Done</h2>
+        <div class="kanban-tasks" data-status="done" id="done-tasks"></div>
+      </div>
+    </div>
+  </main>
+
+    <aside>
+      <button class="btnProject newProjectButton">New Project</button>
+      <div class="projectCards">
+        <h1>Projects</h1>
+          <ul id="project-list">
+          </ul>
+        </div>
+    </aside>
+  </body>
+</html>
